@@ -1,0 +1,73 @@
+# =================================================================
+# 注释：井号（#）开头的行是注释，用于说明。
+# 作用：这个文件告诉 Git 哪些文件或目录不需要被版本控制（即不需要上传到 GitHub）。
+# =================================================================
+
+# 编译输出 (非常重要)
+# 项目构建后生成的目录，包含所有的 .class 文件和打包后的 .jar/.war 文件。
+# 这些是自动生成的文件，不应该被版本控制。
+/target/
+/build/
+/out/
+
+# IDE & 编辑器配置 (根据您的使用习惯保留即可)
+# 不同的开发者使用不同的 IDE，这些配置是个人本地的，不应共享。
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+
+### STS / Eclipse ###
+.apt_generated
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+
+# Maven & Gradle Wrapper
+# Wrapper 的 jar 包是二进制文件，通常不建议提交。
+# 当其他开发者克隆项目后，执行 mvnw 或 gradlew 命令会自动下载所需的 jar 包。
+.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+
+# 敏感配置文件 (!!!极其重要!!!)
+# 忽略所有 application 配置文件，防止数据库密码、API密钥等敏感信息泄露。
+# 强烈建议创建一个 application.yml.example 或 application.properties.example 文件作为模板。
+application.properties
+application.yml
+application-*.properties
+application-*.yml
+
+
+# 日志文件
+# 运行过程中产生的日志文件，不需要被版本控制。
+*.log
+logs/
+
+
+# 操作系统生成的文件
+Thumbs.db
+
+
+# 其他临时文件
+*~
+*.swp
+*.bak
