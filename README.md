@@ -147,7 +147,7 @@ com.example.user_center
 ```json
 {
   "code": 0,
-  "data": "...", // 具体的业务数据
+  "data": "...",
   "message": "ok",
   "description": ""
 }
@@ -161,32 +161,31 @@ com.example.user_center
 
 *   **Endpoint:** `POST /user/register`
 *   **描述:** 创建一个新用户。
-*   **请求体 (Request Body):**
-    ```json
-    {
-      "userAccount": "testAdmin",
-      "userPassword": "password12345",
-      "checkPassword": "password12345",
-      "planetCode": "10000001"
-    }
-    ```
+  *   **请求体 (Request Body):**
+      ```json
+       {
+        "userAccount": "testAdmin",
+        "userPassword": "password12345",
+        "checkPassword": "password12345",
+        "planetCode": "10000001"
+      }
 *   **成功响应 (Success Response):** data返回新用户的 `id`。
-![[Pasted image 20250810142614.png]]
+![注册成功](./images/注册成功.png)
 *   **失败响应用例1 (Error Response):**两次输入密码不一致
-![[Pasted image 20250810142907.png]]
+![密码不一致](./images/密码不一致.png)
 - **失败响应用例2 (Error Response):**输入参数存在空值
-![[Pasted image 20250810143351.png]]
+  ![参数存在空值](./images/参数存在空值.png)
 - **失败响应用例3 (Error Response):**账户长度太短
-![[Pasted image 20250810143537.png]]
+  ![账户长度过短](./images/账户长度过短.png)
 -  **失败响应用例4 (Error Response):**密码长度太短
-![[Pasted image 20250810143729.png]]
+   ![密码长度短](./images/密码长度短.png)
 - **失败响应用例5 (Error Response):**账户名包含特殊字符
-![[Pasted image 20250810143949.png]]
+  ![注册-账户名包含特殊字符](./images/注册-账户名包含特殊字符.png)
 - **失败响应用例6 (Error Response):**账户已存在
-![[Pasted image 20250810144032.png]]
+  ![账户已存在](./images/账户已存在.png)
 - **失败响应用例7 (Error Response):**星球账户已存在
+  ![星球账户已存在](./images/星球账户已存在.png)
 
-![[Pasted image 20250810144107.png]]
 
 ---
 ### 2. 用户登录
@@ -196,22 +195,20 @@ com.example.user_center
 *   **请求体 (Request Body):**
     ```json
     {
-      "userAccount": "testAdmin",
-      "userPassword": "password12345"
-    }
+    "userAccount": "testAdmin",
+    "userPassword": "password12345"
+    }
     ```
 *   **成功响应 (Success Response):** 返回已脱敏的用户信息。
-![[Pasted image 20250811144434.png]]
+    ![登陆成功](./images/登陆成功.png)
 *   **失败响应 (Error Response):** 密码输入错误
-![[Pasted image 20250811144558.png]]
+    ![账户或密码错误](./images/账户或密码错误.png)
 *   **失败响应 (Error Response):** 账户长度过短
-![[Pasted image 20250811144648.png]]
+    ![登陆-账户长度短](./images/登陆-账户长度短.png)
 *   **失败响应 (Error Response):** 密码长度过短
-![[Pasted image 20250811144733.png]]
+    ![登陆-账户长度短](./images/登陆-账户长度短.png)
 *   **失败响应 (Error Response):** 账户名包含特殊字符
-
-![[Pasted image 20250811144900.png]]
-
+    ![账户包含非法字符](./images/账户包含非法字符.png)
 ---
 
 ### 3. 用户登出
@@ -220,7 +217,7 @@ com.example.user_center
 *   **描述:** 清除服务端的登录 Session。
 *   **请求体 (Request Body):** 无
 *   **成功响应 (Success Response):**
-![[Pasted image 20250811154352.png]]
+    ![登出](./images/登出.png)
 
 ---
 
@@ -230,9 +227,8 @@ com.example.user_center
 *   **描述:** 获取当前已登录的用户信息（已脱敏）。
 *   **请求体 (Request Body):** 无
 *   **成功响应 (Success Response):**
-![[Pasted image 20250811145828.png]]
+    ![当前用户](./images/当前用户.png)
 *   **失败响应 (Error Response):** 如果未登录。
-![[Pasted image 20250811145437.png]]
 ---
 
 ### 5. 搜索用户（管理员权限）
@@ -243,9 +239,9 @@ com.example.user_center
     *   `userAccount` (string, 可选): 用户昵称关键词。
 *   **请求示例:** `GET http://localhost:8080/user/search?userAccount=user`
 *   **成功响应 (Success Response):** 返回用户列表（已脱敏）。
-![[Pasted image 20250811153326.png]]
+    ![查询](./images/查询.png)
 *   **失败响应 (Error Response):** 如果非管理员调用。
-![[Pasted image 20250811150314.png]]
+    ![无权限](./images/无权限.png)
 ---
 
 ### 6. 删除用户（管理员权限）
@@ -256,9 +252,9 @@ com.example.user_center
     *   `id` (long, 必填): 要删除的用户 ID。
 *   **请求示例:** `DELETE http://localhost:8080/user/delete/2`
 *   **成功响应 (Success Response):** 返回操作是否成功。
-![[Pasted image 20250811154213.png]]
+    ![成功](./images/成功.png)
 *   **失败响应 (Error Response):** 如果 ID 不存在或无权限。
-![[Pasted image 20250811154017.png]]
+    ![无权限](./images/无权限.png)
 
 ## ⚠️ 错误码列表
 
